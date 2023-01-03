@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Fuel fl;
 
 
+    bool canMove;
     bool isForceUp;
     float leftRight;
 
@@ -37,7 +38,20 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        canMove = true;
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameOver += HandleOnEventTriggered;
+        GameManager.Instance.OnMissionSucced += HandleOnEventTriggered;
+    }
+
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameOver -= HandleOnEventTriggered;
+        GameManager.Instance.OnMissionSucced -= HandleOnEventTriggered;
     }
 
     /// <summary>
@@ -46,6 +60,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Debug.Log(_input.IsForceUp);
+
+        if (!canMove)
+        {
+            return;
+        }
 
         if (_input.IsForceUp && !fl.IsEmpty)
         {
@@ -73,8 +92,15 @@ public class PlayerController : MonoBehaviour
             fl.FuelDecrease(0.2f);
         }
 
-        rtr.FixedTick(leftRight);
+        rtr.FixedTick(leftRight);       
         
-        
+    }
+
+    private void HandleOnEventTriggered()
+    {
+        canMove = false;
+        isForceUp = false;
+        leftRight = 0f;
+        fl.FuelIncrease(0.0f);
     }
 }
