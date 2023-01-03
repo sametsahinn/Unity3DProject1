@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     private Mover mvr;
     private Rotator rtr;
+    private Fuel fl;
+
 
     bool isForceUp;
     float leftRight;
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
         mvr = new Mover(this);
         rtr = new Rotator(this);
+        fl = GetComponent<Fuel>();
     }
 
     // Start is called before the first frame update
@@ -44,11 +47,15 @@ public class PlayerController : MonoBehaviour
     {
         // Debug.Log(_input.IsForceUp);
 
-        if (_input.IsForceUp)
+        if (_input.IsForceUp && !fl.IsEmpty)
         {
             isForceUp = true;
         } 
-        else { isForceUp = false; }
+        else 
+        { 
+            isForceUp = false;
+            fl.FuelIncrease(0.01f);
+        }
 
         leftRight = _input.LeftRight;
     }
@@ -63,6 +70,7 @@ public class PlayerController : MonoBehaviour
             // rigidBdy.AddForce(Vector3.up * Time.deltaTime * _force);
 
             mvr.FixedTick();
+            fl.FuelDecrease(0.2f);
         }
 
         rtr.FixedTick(leftRight);

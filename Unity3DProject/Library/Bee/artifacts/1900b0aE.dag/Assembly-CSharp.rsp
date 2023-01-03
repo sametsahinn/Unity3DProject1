@@ -379,6 +379,7 @@
 "Assets/GameFolders/Scripts/Concretes/Controllers/PlayerController.cs"
 "Assets/GameFolders/Scripts/Concretes/Input/DefaltAction.cs"
 "Assets/GameFolders/Scripts/Concretes/Input/DefaultInput.cs"
+"Assets/GameFolders/Scripts/Concretes/Movements/Fuel.cs"
 "Assets/GameFolders/Scripts/Concretes/Movements/Mover.cs"
 "Assets/GameFolders/Scripts/Concretes/Movements/Rotator.cs"
 -langversion:9.0
