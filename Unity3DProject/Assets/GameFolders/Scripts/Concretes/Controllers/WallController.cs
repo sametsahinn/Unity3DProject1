@@ -9,7 +9,7 @@ public class WallController : MonoBehaviour
     {
         PlayerController player = collision.collider.GetComponent<PlayerController>();
 
-        if (player != null)
+        if (player != null && player.CanMove)
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             GameManager.Instance.GameOver();

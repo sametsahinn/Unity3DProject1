@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float TurnSpeed => _turnSpeed;
     public float Force => _force;
 
+    public bool CanMove => canMove;
 
 
     private void Awake()

@@ -431,7 +431,11 @@
 "Assets/GameFolders/Scripts/Concretes/Movements/Fuel.cs"
 "Assets/GameFolders/Scripts/Concretes/Movements/Mover.cs"
 "Assets/GameFolders/Scripts/Concretes/Movements/Rotator.cs"
+"Assets/GameFolders/Scripts/Concretes/UIs/GameOverObject.cs"
+"Assets/GameFolders/Scripts/Concretes/UIs/GameOverPanel.cs"
 "Assets/GameFolders/Scripts/Concretes/UIs/MenuPanel.cs"
+"Assets/GameFolders/Scripts/Concretes/UIs/WinObject.cs"
+"Assets/GameFolders/Scripts/Concretes/UIs/WinPanel.cs"
 -langversion:9.0
 
 /deterministic

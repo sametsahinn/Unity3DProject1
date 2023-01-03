@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + levelIndex);
     }
 
-    public void LoadMenu()
+    public void LoadMenuScene()
     {
         StartCoroutine(LoadMenuSceneAsync());
     }
