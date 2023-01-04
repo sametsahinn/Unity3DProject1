@@ -3,31 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SinglationThisObject<GameManager>
 {
     public event System.Action OnGameOver;
 
     public event System.Action OnMissionSucced;
 
-    public static GameManager Instance { get; private set; }
-
     private void Awake()
     {
-        SinglationThisGameObject();
+        SingletonThisGameObject(this);
     }
-
-    private void SinglationThisGameObject()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    } 
 
     public void GameOver()
     {
@@ -46,7 +31,9 @@ public class GameManager : MonoBehaviour
         
     private IEnumerator LoadLevelSceneAsync(int levelIndex)
     {
-       yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + levelIndex);
+        SoundManager.Instance.StopSound(1);
+        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + levelIndex);
+        SoundManager.Instance.PlaySound(2);
     }
 
     public void LoadMenuScene()
@@ -56,7 +43,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadMenuSceneAsync()
     {
+        SoundManager.Instance.StopSound(2);
         yield return SceneManager.LoadSceneAsync("Menu");
+        SoundManager.Instance.PlaySound(1);
     }
 
     public void Exit()

@@ -26,6 +26,8 @@ public class Fuel : MonoBehaviour
         {
             partical.Stop();
         }
+        SoundManager.Instance.StopSound(0);
+
     }
 
     public void FuelDecrease(float decrease)
@@ -37,5 +39,6 @@ public class Fuel : MonoBehaviour
         {
             partical.Play();
         }
-    }      
+        SoundManager.Instance.PlaySound(0);
+    }
 }
