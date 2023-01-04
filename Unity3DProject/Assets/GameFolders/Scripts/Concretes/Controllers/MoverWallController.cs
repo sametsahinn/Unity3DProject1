@@ -9,10 +9,11 @@ public class MoverWallController : WallController
     private Vector3 startPosition;
 
     [SerializeField] Vector3 direction;
+    [SerializeField] float speed = 1f;
 
     // [Range(0f, 1f)]
-    [SerializeField] float factor;
-    [SerializeField] float speed = 1f;
+    float factor;
+    
 
     private void Awake()
     {
@@ -26,7 +27,8 @@ public class MoverWallController : WallController
         float sinWave = Mathf.Sin(cycle * FULL_CIRCLE);
         // Debug.Log(sinWave);
 
-        factor = Mathf.Abs(sinWave);
+        //factor = Mathf.Abs(sinWave);
+        factor = sinWave / 2f + 0.5f;
 
         Vector3 offset = direction * factor;
         transform.position = offset + startPosition;
