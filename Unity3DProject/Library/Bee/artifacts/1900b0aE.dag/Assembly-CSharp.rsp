@@ -433,6 +433,7 @@
 "Assets/GameFolders/Scripts/Concretes/Movements/Fuel.cs"
 "Assets/GameFolders/Scripts/Concretes/Movements/Mover.cs"
 "Assets/GameFolders/Scripts/Concretes/Movements/Rotator.cs"
+"Assets/GameFolders/Scripts/Concretes/UIs/FuelSlider.cs"
 "Assets/GameFolders/Scripts/Concretes/UIs/GameOverObject.cs"
 "Assets/GameFolders/Scripts/Concretes/UIs/GameOverPanel.cs"
 "Assets/GameFolders/Scripts/Concretes/UIs/MenuPanel.cs"

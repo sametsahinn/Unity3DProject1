@@ -10,6 +10,8 @@ public class Fuel : MonoBehaviour
 
     public bool IsEmpty => currentFuel < 1f;
 
+    public float CurrentFuel => currentFuel / maxFuel;
+
     private void Awake()
     {
         currentFuel = maxFuel;
